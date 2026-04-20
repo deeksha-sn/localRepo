@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Solver Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="app">
+        <section class="hero">
+            <p class="eyebrow">DAA Mini Project</p>
+            <h1>Maze Solver Using BFS and DFS</h1>
+            <p class="subtitle">
+                Build a maze, solve it using graph traversal, and compare shortest-path BFS
+                with path-finding DFS in a simple GUI.
+            </p>
+        </section>
+
+        <section class="panel controls">
+            <div class="control-group">
+                <label for="rows">Rows</label>
+                <input id="rows" type="number" min="3" max="12" value="6">
+            </div>
+            <div class="control-group">
+                <label for="cols">Columns</label>
+                <input id="cols" type="number" min="3" max="12" value="8">
+            </div>
+            <div class="button-row">
+                <button id="generateBtn">Generate Grid</button>
+                <button id="sampleBtn">Load Sample</button>
+                <button id="resetBtn">Reset Path</button>
+            </div>
+            <div class="button-row">
+                <button id="bfsBtn" class="accent">Solve with BFS</button>
+                <button id="dfsBtn" class="accent-alt">Solve with DFS</button>
+            </div>
+        </section>
+
+        <section class="layout">
+            <section class="panel board-panel">
+                <div class="legend">
+                    <span><i class="tile start"></i>Start</span>
+                    <span><i class="tile end"></i>End</span>
+                    <span><i class="tile wall"></i>Wall</span>
+                    <span><i class="tile open"></i>Open</span>
+                    <span><i class="tile path"></i>Path</span>
+                </div>
+                <p class="hint">
+                    Click cells to cycle: open -> wall -> start -> end -> open
+                </p>
+                <div id="mazeGrid" class="maze-grid" aria-label="Maze grid"></div>
+            </section>
+
+            <section class="panel info-panel">
+                <h2>Result</h2>
+                <p id="status">Generate or load a maze, then choose BFS or DFS.</p>
+                <div class="result-box">
+                    <p><strong>Algorithm:</strong> <span id="algorithmValue">-</span></p>
+                    <p><strong>Visited Cells:</strong> <span id="visitedValue">-</span></p>
+                    <p><strong>Path Length:</strong> <span id="pathValue">-</span></p>
+                </div>
+
+                <h2>How It Works</h2>
+                <ul>
+                    <li>BFS explores level by level and gives the shortest path.</li>
+                    <li>DFS explores deeply first and finds any valid path.</li>
+                    <li>Walls block movement, while open cells can be visited.</li>
+                </ul>
+            </section>
+        </section>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
